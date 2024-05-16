@@ -1,9 +1,9 @@
-import { getClinet } from "./utils";
+import { getclient } from "./utils";
 
 const tableName = "todos";
 
 const deletetable = async () => {
-  const clinet = await getClinet();
+  const clinet = await getclient();
 
   const DeleteTable = `
     DROP TABLE IF EXISTS ${tableName} CASCADE;

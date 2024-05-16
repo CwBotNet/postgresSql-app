@@ -1,4 +1,4 @@
-import { getClinet } from "./utils";
+import { getclient } from "./utils";
 
 const userTable = `
 CREATE TABLE users (
@@ -18,10 +18,23 @@ CREATE TABLE todos (
   );
 `;
 
-const CreateTable = async () => {
-  const clinet = await getClinet();
+const addressTable = `
+CREATE TABLE address (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    country VARCHAR(100) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    pincode VARCHAR(20),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+`;
 
-  const createTable = todoTable;
+const CreateTable = async () => {
+  const clinet = await getclient();
+
+  const createTable = addressTable;
 
   const response = await clinet.query(createTable);
   console.log("table created successfully!");

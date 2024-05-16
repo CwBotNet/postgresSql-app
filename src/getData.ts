@@ -1,9 +1,9 @@
-import { getClinet } from "./utils";
+import { getclient } from "./utils";
 
 const tagetRow = ["test1@mail.com"];
 
 const getData = async () => {
-  const client = await getClinet();
+  const client = await getclient();
 
   const query = `
   SELECT * FROM users WHERE email = $1;

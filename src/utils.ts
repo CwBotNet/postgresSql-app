@@ -1,12 +1,12 @@
 import { Client } from "pg";
 import { postgresqlUrl } from "./config";
 
-const getClinet = async () => {
-  const clinet = new Client(postgresqlUrl);
+const getclient = async () => {
+  const client = new Client(postgresqlUrl);
 
-  await clinet.connect();
+  await client.connect();
 
-  return clinet;
+  return client;
 };
 
-export { getClinet };
+export { getclient };
